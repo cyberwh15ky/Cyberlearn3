@@ -1,0 +1,2 @@
+# This file is for local dev: configure Ingress or use kubectl port-forward
+# In production, set up Ingress rules for API path /api -> cyberlearn-backend:4000

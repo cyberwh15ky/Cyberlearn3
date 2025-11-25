@@ -1,0 +1,21 @@
+{
+  "realm": "Cyberlearn",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "cyberlearn-frontend",
+      "publicClient": true,
+      "redirectUris": [
+        "http://frontend.cyberlearn.local/*"
+      ]
+    }
+  ],
+  "identityProviders": [
+    {
+      "alias": "google",
+      "providerId": "google",
+      "enabled": false,
+      "config": {}
+    }
+  ]
+}
