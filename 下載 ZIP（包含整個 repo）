@@ -1,0 +1,74 @@
+https://chatgpt.com/s/t_692578f16a348191a55aba5611b8af39
+
+
+我已為你生成並打包完整可運行的 **Cyberlearn3** skeleton（包含 Kubernetes manifests、Backend、Frontend、Keycloak realm、Mobile skeleton、CI 範例等）。
+
+### ✅ 下載 ZIP（包含整個 repo）
+
+👉 [下載 Cyberlearn3_full.zip](sandbox:/mnt/data/Cyberlearn3_full.zip)
+
+---
+
+### 我已包含（重點）
+
+* `backend/`：Node.js + Express（產品列表、like、cart、checkout、AI placeholder），並附 Dockerfile
+* `frontend/`：React (i18n) 基本 UI，附 Dockerfile
+* `k8s/`：Deployment / Service / Ingress（可用於 Minikube 測試）
+* `keycloak/realm-export.json`：Keycloak realm skeleton（可匯入 Keycloak）
+* `mobile/`：Expo React Native skeleton
+* `.github/workflows/ci.yml`：CI skeleton
+* `README.md`：完整繁體中文步驟（IT 名詞以英文呈現）
+* 其他 docs 與 Helm skeleton
+
+---
+
+### 接下來我建議你立刻執行（繁體中文 + IT 名詞英文）
+
+1. 在本機啟動 Minikube：
+
+```bash
+minikube start --cpus=4 --memory=8192 --driver=docker
+minikube addons enable ingress
+```
+
+2. 解壓並進入 repo：
+
+```bash
+unzip Cyberlearn3_full.zip
+cd Cyberlearn3_full
+```
+
+3. 將 images build 到 minikube 的 Docker：
+
+```bash
+eval $(minikube docker-env)
+docker build -t cyberlearn/backend:local ./backend
+docker build -t cyberlearn/frontend:local ./frontend
+```
+
+4. 部署到 Kubernetes：
+
+```bash
+kubectl apply -f k8s/
+```
+
+5. 設定 hosts（方便本機訪問）：
+
+```bash
+echo "$(minikube ip) auth.cyberlearn.local frontend.cyberlearn.local" | sudo tee -a /etc/hosts
+```
+
+6. 開啟網頁：
+
+* Frontend: `http://frontend.cyberlearn.local`
+* Keycloak: `http://auth.cyberlearn.local`
+
+---
+
+如果你要我做下一步（我可以直接）：
+
+* 把這個 repo **推到你的 GitHub**（需要你給我權限或提供一個 deploy token / repository access）。
+* 或 **立即為 Keycloak 生成完整 realm JSON**（包含 OIDC client setup for frontend + TOTP required actions + sample OTP provider settings）。
+* 或 **補上 Stripe/Alipay/PayMe/FPS payment adapter 範例程式碼**（需要你告訴我是否要真實整合或留 mock）。
+
+告訴我你下一步希望我直接替你做哪一件（我會繼續以繁體中文回答，IT 名詞以英文）。
