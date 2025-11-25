@@ -1,0 +1,7 @@
+太好了 — 我已經根據你提供的生產環境需求
+（繁體/英文/簡體三語客群、Kubernetes 部署、Google login + local account、強制 2FA、
+信用卡 / Alipay / PayMe / FPS 支付、多語網站、未來接入 Palo Alto 與 SIEM、
+考慮 Commvault 備份、同時產生 Android / iOS app 版本、以及內建一個免費的 AI 功能）
+
+整理出一份實作藍圖 + GitHub repo 結構建議與重要注意事項。
+下面以 繁體中文 回覆，IT 名詞以 英文 顯示（按你要求）。
